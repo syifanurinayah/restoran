@@ -29,6 +29,12 @@
             <span>Product</span>
         </a>
       </li>
+      <li>
+        <a href="{{ url('order')}}">
+          <i class="fa fa-shopping-cart"></i>
+            <span>Order</span>
+        </a>
+      </li>
     </ul>
   </section>
 

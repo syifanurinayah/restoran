@@ -16,6 +16,7 @@ Route::get('products/{prod}/show', 'Admin\ProductController@show');
 Route::POST('products', 'Admin\ProductController@store');
 Route::patch('products/{prod}','Admin\ProductController@update');
 Route::get('/detail-products', 'Admin\ProductController@detail_products');
-// Route::patch('category/{category}','Admin\CategoryController@update');
 Route::delete('products/{prod}','Admin\ProductController@destroy');
+
+Route::get('order', 'Admin\OrderController@index');
 
