@@ -22,3 +22,4 @@ Route::get('order', 'Admin\OrderController@index');
 
 
 Route::get('/','Front\HomeController@index');
+Route::get('/products','Front\ProductsController@add_to_cart')->name('cart');

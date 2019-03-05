@@ -9,9 +9,7 @@ use App\Categories;
 class HomeController extends Controller
 {
     public function index(){
-        //$products = Products::orderBy('id','DESC'); 
-        $products = Products::all(); 
-        //dd($products);
+        $products = Products::all();    
         return view('front/index',compact('products'));
     }   
 }

@@ -28,8 +28,20 @@
                             <img src="{{ asset('foto/' . $product->image)}}" style="width: 100%;height: 80%;">
                         </div>
                         <h5 class="mt-20">{{ $product->name}}</h5>
-                        <h4 class="mt-5"><b>Rp.{{ number_format($product->price)}}</b></h4>
-                        <h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
+                        <h4 class="mt-5">                            
+                            <b>Rp.{{ number_format($product->price)}}
+                            </b>
+                        </h4>
+                        <h6 class="mt-20">
+                            <form action="{{ route('cart') }}" method="post">{{ csrf_field() }}  
+                                <input type="hidden" name="id" value="{{ $product->id}}">                              
+                                <input type="hidden" name="name" value="{{ $product->name}}">                              
+                                <input type="hidden" name="price" value="{{ $product->price}}">                              
+                                <button type="submit" class="btn-brdr-primary plr-25">
+										Order Now
+								</button>                                
+                            </form>
+                        </h6>
                     </div><!--text-center-->
                 </div><!-- col-md-3 -->
                 @endforeach
