@@ -54,7 +54,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="{{ asset('img/administrator.png') }}" class="user-image" class="img-circle" alt="User Image">
-                    <span class="hidden-xs">Alexander Pierce</span>
+                    <span class="hidden-xs">{{ Auth::user()->name }}</span>
                 </a>
             </a>
             <ul class="dropdown-menu">
@@ -62,7 +62,7 @@
                 <img src="{{ asset('img/administrator.png') }}" class="user-image" class="img-circle" alt="User Image">
                 {{-- <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"> --}}
                 <p>
-                    Alexander Pierce - Web Developer
+                  {{ Auth::user()->name }}
                     <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -71,7 +71,16 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="btn btn-default btn-flat" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                    <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();"
+                             class="btn btn-default btn-flat">
+                    Logout
+                  </a>
+                  {{-- <a href="{{ route('logout') }}" class="btn btn-default btn-flat">Sign out</a> --}}
                 </div>
               </li>
             </ul>

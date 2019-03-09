@@ -24,7 +24,7 @@
         </a>
       </li>
       <li>
-        <a href="{{ url('products')}}">
+        <a href="{{ url('product')}}">
           <i class="fa fa-product-hunt"></i>
             <span>Product</span>
         </a>

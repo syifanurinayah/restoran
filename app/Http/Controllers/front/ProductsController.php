@@ -17,7 +17,7 @@ class ProductsController extends Controller
      }
     public function add_to_cart(Request $request){
         $request->cookie('cart-product');
-        dd(cookie('cart-product'));
+        // dd(cookie('cart-product'));
         // $code = $request->cookie('cart-product');
         // return view('index');
     }
