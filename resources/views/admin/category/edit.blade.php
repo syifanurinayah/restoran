@@ -17,11 +17,18 @@
                     <div class="box box-primary"> 
                         <div class="form-horizontal">
                             <div class="box-body">
-                                {!! Form::model($category, ['method' => 'PATCH', 'action' => ['Admin\CategoryController@update', $category->id]]) !!}
+                                {!! Form::model($category, ['method' => 'PATCH', 'action' => ['Admin\CategoryController@update', $category->id] , 'enctype' => 'ultipart/form-data' , 'files' => 'true']) !!}
                                     <div class="form-group">
                                        {!! Form::label('category', 'Name', ['class' => 'control-label col-sm-2']) !!}
                                         <div class="col-sm-5">
                                           {!! Form::text('name', null, ['class' =>'form-control']) !!}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                       {!! Form::label('image', 'Image', ['class' => 'control-label col-sm-2']) !!}
+                                        <div class="col-sm-5">
+                                            <img src="{{ asset('foto/'.$category->image) }}" alt="" style="width:100%">
+                                            <input type="file" name="image" class="form-control">
                                         </div>
                                     </div>
                                     <div class="box-footer">

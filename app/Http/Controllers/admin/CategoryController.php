@@ -24,6 +24,18 @@ class CategoryController extends Controller
     {
         $category = new Categories();
         $category->name = $request->name;
+        $category->image = $request->image;
+        if ($request->hasFile('image')) {
+            $foto = $request->file('image');
+            $ext = $foto->getClientOriginalExtension();
+
+            if ($request->file('image')->isValid()) {
+                $foto_name = date('YmdHis'). ".$ext";
+                $upload_path = 'foto';
+                $request->file('image')->move($upload_path, $foto_name);
+                $category->image = $foto_name;
+            }
+        }
         if(!$category->save()){
             session()->flash('msg','cannot save');
             return redirect('admin/category.create');
@@ -43,6 +55,18 @@ class CategoryController extends Controller
     {
         $category = Categories::find($id);
         $category->name = $request->name;
+        $category->image = $request->image;
+        if ($request->hasFile('image')) {
+            $foto = $request->file('image');
+            $ext = $foto->getClientOriginalExtension();
+
+            if ($request->file('image')->isValid()) {
+                $foto_name = date('YmdHis'). ".$ext";
+                $upload_path = 'foto';
+                $request->file('image')->move($upload_path, $foto_name);
+                $category->image = $foto_name;
+            }
+        }
         if(!$category->save()){
             session()->flash('msg','cannot save');
             return redirect('admin/category'. $id);

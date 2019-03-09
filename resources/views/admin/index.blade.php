@@ -16,6 +16,14 @@
 
     <section class="content">
         <div class="row">
+            <div class="col-lg-12 col-xs-12">
+              <div class="alert alert-info alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <p style="font-size:15px">
+                    <i class="glyphicon glyphicon-user"></i>Welocome {{ Auth::user()->name }}</strong> di Admin panel
+                  </p>        
+              </div>
+            </div>
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-aqua">
                     <div class="inner">

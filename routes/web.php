@@ -24,4 +24,9 @@ Route::delete('products/{prod}','Admin\ProductController@destroy');
 Route::get('order', 'Admin\OrderController@index');
 
 Route::get('/','Front\HomeController@index');
-Route::get('/products','Front\ProductsController@add_to_cart')->name('cart');
+Route::get('cart','Front\ProductsController@cart');
+Route::post('/cart','Front\ProductsController@add_to_cart')->name('cart');
+Route::delete('cart/remove/{product}','Front\ProductsController@destroy')->name('cart.destroy');
+Route::patch('/cart/update/{product}','Front\ProductsController@destroy')->name('cart.update');
+Route::get('checkout','Front\ProductsController@checkout');
+Route::post('/checkout','CheckoutController@store')->name('checkout');

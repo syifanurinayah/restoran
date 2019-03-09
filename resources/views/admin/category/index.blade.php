@@ -39,7 +39,8 @@
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <td>Nama</td>                                      
+                                        <td style="width: 25%;">Nama</td>                                      
+                                        <td class="center">Image</td>                                      
                                         <td>Action</td>
                                     </tr>
                                 </thead>                            
@@ -47,6 +48,9 @@
                                     @foreach ($categories as $cat )
                                         <tr>
                                             <td>{{ $cat->name}}</td>
+                                            <td>
+                                                <img src="{{ asset('foto/'.$cat->image) }}" alt="" style="width:15%;float: right;">
+                                            </td>
                                             <td>                                                
                                                 <div class="btn-group">
                                                     <a href="category/{{ $cat->id }}" title="edit" class="btn btn-default btn-sm">
