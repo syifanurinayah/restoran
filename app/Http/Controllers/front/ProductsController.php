@@ -39,4 +39,6 @@ class ProductsController extends Controller
    public function checkout(){
         return view('front/products.checkout');
    }
+
+   
 }

@@ -24,6 +24,7 @@ Route::delete('products/{prod}','Admin\ProductController@destroy');
 Route::get('order', 'Admin\OrderController@index');
 
 Route::get('/','Front\HomeController@index');
+Route::get('/category/{id}', 'HomeController@category');
 Route::get('cart','Front\ProductsController@cart');
 Route::post('/cart','Front\ProductsController@add_to_cart')->name('cart');
 Route::delete('cart/remove/{product}','Front\ProductsController@destroy')->name('cart.destroy');

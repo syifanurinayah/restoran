@@ -12,6 +12,24 @@
             </div><!-- dplay-tbl -->
         </div><!-- container -->
     </section>
+    <section class="story-area left-text center-sm-text pos-relative">       
+        <div class="container">
+            <div class="heading">
+                <img class="heading-img" src="images/heading_logo.png" alt="">
+                    <h2 style="margin-top:-100px">CATEGORY</h2>
+            </div>
+           
+            <div class="row">
+                    @foreach ($category as $cat)
+                <div class="col-lg-4">
+                    <img src="{{ asset('foto/'.$cat->image) }}" style="cursor:pointer;" id="categories" alt="" style="width:100%">
+                    <p>{{ $cat->name }}</p>
+                </div>  
+                @endforeach              
+            </div><!-- row -->
+           
+        </div><!-- container -->
+</section>
     <section class="story-area bg-seller color-white pos-relative">
         <div class="pos-bottom triangle-up"></div>
         <div class="pos-top triangle-bottom"></div>
@@ -20,7 +38,7 @@
                     <img class="heading-img" src="images/heading_logo.png" alt="">
                     <h2>Products Terbaru</h2>
             </div>            
-            <div class="row">
+            <div class="row" id="result">
                 @foreach ($products as $product)
                 <div class="col-lg-3 col-md-4  col-sm-6 ">
                     <div class="center-text mb-30">
@@ -56,5 +74,12 @@
             </div><!-- row -->           
         </div><!-- container -->
     </section>
-    
+    <script type="text/javascript">
+        $('#categories').on('change',function(e){
+        var id = e.target.value; 
+        $.get('{{ url('category')}}/'+id, function(data){
+        $('#result').data(data);
+        });
+        });
+        </script>	
 @endsection
